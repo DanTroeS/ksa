@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Адаптивный макет блога</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f4f4;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        header, footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+        .content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .main {
+            flex: 2;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .post {
+            background: white;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            width: calc(100% / 3 - 20px);
+        }
+        .sidebar {
+            flex: 1;
+            background: #ddd;
+            padding: 20px;
+        }
+        @media (max-width: 992px) {
+            .post { width: calc(50% - 20px); }
+        }
+        @media (max-width: 768px) {
+            .content { flex-direction: column; }
+            .main { flex-direction: column; }
+            .post { width: 100%; }
+            .sidebar { order: -1; }
+        }
+    </style>
+</head>
+<body>
+    <header>Шапка</header>
+    <div class="container">
+        <div class="content">
+            <section class="main">
+                <div class="post">Пост 1</div>
+                <div class="post">Пост 2</div>
+                <div class="post">Пост 3</div>
+            </section>
+            <aside class="sidebar">Боковая панель</aside>
+        </div>
+    </div>
+    <footer>Футер</footer>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Градиентный фон</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            background: linear-gradient(135deg, blue, purple);
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+        #quote {
+            margin-top: 20px;
+            font-size: 18px;
+            font-style: italic;
+            text-align: center;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            background-color: white;
+            color: black;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Случайная цитата</h1>
+    <button onclick="showRandomQuote()">Показать цитату</button>
+    <p id="quote"></p>
+    <script>
+        const quotes = [
+            "Будь изменением, которое ты хочешь видеть в мире. — Махатма Ганди",
+            "Единственный способ делать великие дела — любить то, что ты делаешь. — Стив Джобс",
+            "Не бойтесь отказаться от хорошего ради великого. — Джон Д. Рокфеллер",
+            "Ваше время ограничено, не тратьте его, живя чужой жизнью. — Стив Джобс",
+            "Чем труднее борьба, тем славнее победа. — Томас Пейн"
+        ];
+        
+        function showRandomQuote() {
+            const quoteElement = document.getElementById("quote");
+            const randomIndex = Math.floor(Math.random() * quotes.length);
+            quoteElement.textContent = quotes[randomIndex];
+        }
+    </script>
+</body>
+</html>

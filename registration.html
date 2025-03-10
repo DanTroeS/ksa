@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Регистрация</title>
+    <link rel="stylesheet" href="./Новая папка/registration.css">
+</head>
+<body>
+    <div class="container">
+        <div class="registration">
+            <h2>Регистрация</h2>
+            <form>
+                <div class="form-group">
+                    <div class="input-pair">
+                        <div>
+                            <label>Имя</label>
+                            <input type="text">
+                        </div>
+                        <div>
+                            <label>Телефон</label>
+                            <input type="tel">
+                        </div>
+                    </div>
+                    <div class="input-pair">
+                        <div>
+                            <label>Фамилия</label>
+                            <input type="text">
+                        </div>
+                        <div>
+                            <label>E-mail</label>
+                            <input type="email">
+                        </div>
+                    </div>
+                    <div class="input-pair">
+                        <div>
+                            <label>Возраст</label>
+                            <input type="number">
+                        </div>
+                        <div class="gender">
+                            <label>Пол:</label>
+                            <div class="gender-options">
+                                <div class="gender-box" data-gender="Муж">Муж</div>
+                                <div class="gender-box" data-gender="Жен">Жен</div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <div class="input-pair">
+                        <div>
+                            <label>Придумайте пароль</label>
+                            <input type="password">
+                        </div>
+                        <div>
+                            <label>Повторите пароль</label>
+                            <input type="password">
+                        </div>
+                    </div>
+                </div>
+                <p class="terms">Передавая эту информацию, вы принимаете условия <a href="#">пользовательского соглашения</a></p>
+                <button class="register-btn">Зарегистрироваться</button>
+            </form>
+        </div>
+
+       
+        <div class="family">
+            <h3>Семья</h3>
+            <button class="add-family-btn">Добавить члена семьи</button>
+            <div class="photo-upload">
+                <img id="uploaded-image" src="" alt="" hidden>
+            </div>
+            <button class="add-photo-btn">Добавить фото</button>
+            <input type="file" id="file-input" accept="image/*" hidden>
+        </div>
+    </div>
+
+<!-- Окно добавления члена семьи -->
+<div class="modal" id="family-modal">
+    <div class="modal-content">
+        <h3>Добавление семьи</h3>
+        <label>Имя</label>
+        <input type="text">
+        <label>Фамилия</label>
+        <input type="text">
+        <label>Дата рождения</label>
+        <input type="date">
+        <label>Пол:</label>
+        <select>
+            <option>Муж</option>
+            <option>Жен</option>
+        </select>
+        <button class="close-modal">Добавить члена семьи</button>
+    </div>
+</div>
+    <script src="./asdw.js"></script>
+</body>
+</html>

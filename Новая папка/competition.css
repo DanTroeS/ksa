@@ -1,0 +1,102 @@
+body {
+    font-family: Arial, sans-serif;
+    background: #222;
+    color: white;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+header {
+    width: 100%;
+    background: #333;
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 50px;
+    align-items: center;
+    border-bottom: 1px solid #444;
+}
+
+nav a {
+    margin: 0 15px;
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+}
+
+.theme-toggle {
+    cursor: pointer;
+}
+
+.container {
+    background: #fff;
+    color: black;
+    padding: 30px;
+    width: 60%;
+    margin-top: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+.contest-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.contest-image {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.contest-info {
+    width: 90%;
+    margin-top: 20px;
+}
+
+h2 {
+    font-size: 24px;
+}
+
+p {
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+.register-btn {
+    background: navy;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+    width: 100%;
+}
+
+.register-btn:hover {
+    background: darkblue;
+}
+
+.nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+.left-btn {
+    left: -50px;
+}
+
+.right-btn {
+    right: -50px;
+}

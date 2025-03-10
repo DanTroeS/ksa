@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Экранная клавиатура</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+        }
+
+        input {
+            width: 90%;
+            max-width: 400px;
+            height: 40px;
+            font-size: 18px;
+            padding: 5px;
+            text-align: center;
+            margin-bottom: 15px;
+            border: 2px solid #333;
+            border-radius: 8px;
+        }
+
+        .keyboard {
+            display: grid;
+            grid-template-columns: repeat(10, 1fr);
+            gap: 5px;
+            max-width: 450px;
+            padding: 10px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        button {
+            width: 40px;
+            height: 40px;
+            font-size: 16px;
+            border: none;
+            background: #ddd;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        button:hover {
+            background: #bbb;
+        }
+
+        .wide {
+            width: 80px;
+        }
+
+        .shift-active {
+            background: #888;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <input type="text" id="textInput" readonly>
+
+    <div class="keyboard">
+        <button class="key">q</button>
+        <button class="key">w</button>
+        <button class="key">e</button>
+        <button class="key">r</button>
+        <button class="key">t</button>
+        <button class="key">y</button>
+        <button class="key">u</button>
+        <button class="key">i</button>
+        <button class="key">o</button>
+        <button class="key">p</button>
+
+        <button class="key">a</button>
+        <button class="key">s</button>
+        <button class="key">d</button>
+        <button class="key">f</button>
+        <button class="key">g</button>
+        <button class="key">h</button>
+        <button class="key">j</button>
+        <button class="key">k</button>
+        <button class="key">l</button>
+        <button class="wide" id="backspace">⌫</button>
+
+        <button class="wide" id="shift">Shift</button>
+        <button class="key">z</button>
+        <button class="key">x</button>
+        <button class="key">c</button>
+        <button class="key">v</button>
+        <button class="key">b</button>
+        <button class="key">n</button>
+        <button class="key">m</button>
+        <button class="wide" id="space">Space</button>
+    </div>
+
+    <script>
+        const textInput = document.getElementById("textInput");
+        const keys = document.querySelectorAll(".key");
+        const backspace = document.getElementById("backspace");
+        const shift = document.getElementById("shift");
+        const space = document.getElementById("space");
+
+        let isShiftActive = false;
+
+        keys.forEach(key => {
+            key.addEventListener("click", () => {
+                textInput.value += isShiftActive ? key.textContent.toUpperCase() : key.textContent;
+                if (isShiftActive) toggleShift();
+            });
+        });
+
+        backspace.addEventListener("click", () => {
+            textInput.value = textInput.value.slice(0, -1);
+        });
+
+        space.addEventListener("click", () => {
+            textInput.value += " ";
+        });
+
+        shift.addEventListener("click", () => {
+            toggleShift();
+        });
+
+        function toggleShift() {
+            isShiftActive = !isShiftActive;
+            shift.classList.toggle("shift-active", isShiftActive);
+        }
+    </script>
+
+</body>
+</html>

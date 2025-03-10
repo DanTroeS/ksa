@@ -1,0 +1,145 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background: url('https://source.unsplash.com/1600x900/?space,stars') no-repeat center center/cover;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #ffffff;
+}
+
+header {
+    width: 100%;
+    background: rgba(10, 15, 41, 0.9);
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 50px;
+    align-items: center;
+    border-bottom: 2px solid #4e5b97;
+}
+
+nav a {
+    margin: 0 15px;
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: #ffcc00;
+}
+
+.theme-toggle {
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.container {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 30px;
+    width: 60%;
+    margin-top: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+    text-align: center;
+    backdrop-filter: blur(10px);
+}
+
+h2, h3 {
+    margin-bottom: 15px;
+    
+    text-shadow: 2px 2px 5px #000;
+}
+
+.profile-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.form {
+    width: 60%;
+}
+
+label {
+    font-weight: bold;
+    margin-top: 10px;
+    display: block;
+    color: #ffcc00;
+}
+
+input, select, button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    background: rgba(255, 255, 255, 0.2);
+    color: #ffffff;
+}
+
+.save-btn, .submit-btn {
+    background: linear-gradient(45deg, #ffcc00, #ff6600);
+    color: #1b263b;
+    border: none;
+    cursor: pointer;
+    margin-top: 15px;
+    font-weight: bold;
+    transition: background 0.3s, transform 0.2s;
+    border-radius: 30px;
+}
+
+.save-btn:hover, .submit-btn:hover {
+    background: linear-gradient(45deg, #ffa500, #ff4500);
+    transform: scale(1.05);
+}
+
+.avatar-section {
+    text-align: center;
+}
+
+.avatar {
+    position: relative;
+    display: inline-block;
+}
+
+.avatar img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    padding-top: 50px;
+    border: 3px solid #ffcc00;
+    
+}
+
+.edit-icon {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    background: #ffcc00;
+    padding: 5px;
+    border-radius: 50%;
+    cursor: pointer;
+    
+}
+
+#avatar-upload {
+    display: none;
+}
+
+.password-btn, .logout-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #ffcc00;
+    margin-top: 10px;
+    font-weight: bold;
+    text-shadow: 1px 1px 3px #000;
+}
+
+.password-btn:hover, .logout-btn:hover {
+    color: #ffa500;
+}

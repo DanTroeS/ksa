@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Анимация спрайта</title>
+    <style>
+        body {
+            background-color: #222;
+            overflow: hidden;
+        }
+        .scene {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+        .character {
+            width: 100px; /* Ширина одного кадра */
+            height: 100px; /* Высота кадра */
+            background: url('sprite.png') left center;
+            background-size: cover;
+            position: absolute;
+            animation: run-cycle 1s steps(8) infinite, move-right 5s linear infinite;
+        }
+        
+        @keyframes run-cycle {
+            from { background-position: 0 0; }
+            to { background-position: -800px 0; } /* Если 8 кадров по 100px */
+        }
+        
+        @keyframes move-right {
+            from { left: -100px; }
+            to { left: 100vw; }
+        }
+    </style>
+</head>
+<body>
+    <div class="scene">
+        <div class="character"></div>
+    </div>
+</body>
+</html>

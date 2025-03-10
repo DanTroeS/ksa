@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UI Комплект</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: #f4f4f4;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: 320px;
+        }
+        input, select, button, input[type="range"] {
+            width: 100%;
+            margin: 8px 0;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        button {
+            background: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        button:hover {
+            background: #0056b3;
+        }
+        label {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin: 5px 0;
+        }
+        progress {
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>UI Комплект</h2>
+        
+        <!-- Текстовое поле -->
+        <input type="text" placeholder="Введите текст...">
+        
+        <!-- Кнопка -->
+        <button>Нажми меня</button>
+        
+        <!-- Выпадающий список -->
+        <select>
+            <option>Выберите...</option>
+            <option>Опция 1</option>
+            <option>Опция 2</option>
+        </select>
+        
+        <!-- Чекбокс -->
+        <label><input type="checkbox"> Чекбокс</label>
+        
+        <!-- Радиокнопка -->
+        <label><input type="radio" name="radio"> Радиокнопка</label>
+        <label><input type="radio" name="radio"> Другая</label>
+        
+        <!-- Выпадающий календарь -->
+        <input type="date">
+        
+        <!-- Диапазон -->
+        <input type="range" min="0" max="100" value="50">
+        
+        <!-- Прогресс-бар -->
+        <progress value="70" max="100"></progress>
+    </div>
+</body>
+</html>

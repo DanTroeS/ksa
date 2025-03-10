@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Генератор цветов RGB</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        .color-box {
+            width: 200px;
+            height: 200px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            background-color: rgb(0, 0, 0);
+            transition: background 0.3s;
+        }
+
+        .rgb-value {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .slider-container {
+            width: 300px;
+        }
+
+        input[type="range"] {
+            width: 100%;
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="color-box" id="colorBox"></div>
+    <div class="rgb-value" id="rgbValue">RGB(0, 0, 0)</div>
+
+    <div class="slider-container">
+        <label>Красный</label>
+        <input type="range" id="red" min="0" max="255" value="0">
+
+        <label>Зеленый</label>
+        <input type="range" id="green" min="0" max="255" value="0">
+
+        <label>Синий</label>
+        <input type="range" id="blue" min="0" max="255" value="0">
+    </div>
+
+    <script>
+        const redSlider = document.getElementById("red");
+        const greenSlider = document.getElementById("green");
+        const blueSlider = document.getElementById("blue");
+        const colorBox = document.getElementById("colorBox");
+        const rgbValue = document.getElementById("rgbValue");
+
+        function updateColor() {
+            const r = redSlider.value;
+            const g = greenSlider.value;
+            const b = blueSlider.value;
+            const rgb = `RGB(${r}, ${g}, ${b})`;
+
+            colorBox.style.backgroundColor = rgb;
+            rgbValue.textContent = rgb;
+        }
+
+        redSlider.addEventListener("input", updateColor);
+        greenSlider.addEventListener("input", updateColor);
+        blueSlider.addEventListener("input", updateColor);
+    </script>
+
+</body>
+</html>

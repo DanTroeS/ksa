@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Движущиеся окружности</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            background-color: #111;
+        }
+
+        .circle {
+            position: absolute;
+            border-radius: 50%;
+            will-change: transform;
+        }
+    </style>
+</head>
+<body>
+
+<script>
+    const numCircles = Math.floor(Math.random() * 15) + 10; // 10-25 окружностей
+    const circles = [];
+    let mouse = { x: null, y: null };
+
+    // Создаем случайные окружности
+    for (let i = 0; i < numCircles; i++) {
+        const circle = document.createElement("div");
+        const size = Math.random() * 50 + 20; // Размер от 20 до 70 пикселей
+        circle.classList.add("circle");
+        circle.style.width = `${size}px`;
+        circle.style.height = `${size}px`;
+        circle.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
+        
+        const startX = Math.random() * (window.innerWidth - size);
+        const startY = Math.random() * (window.innerHeight - size);
+
+        document.body.appendChild(circle);
+
+        circles.push({
+            element: circle,
+            x: startX,
+            y: startY,
+            size: size,
+            dx: (Math.random() - 0.5) * 4,
+            dy: (Math.random() - 0.5) * 4
+        });
+    }
+
+    // Функция обновления положения окружностей
+    function updateCircles() {
+        circles.forEach(circle => {
+            circle.x += circle.dx;
+            circle.y += circle.dy;
+
+            // Отталкивание от границ экрана
+            if (circle.x <= 0 || circle.x + circle.size >= window.innerWidth) {
+                circle.dx *= -1;
+                circle.x = Math.max(0, Math.min(circle.x, window.innerWidth - circle.size));
+            }
+            if (circle.y <= 0 || circle.y + circle.size >= window.innerHeight) {
+                circle.dy *= -1;
+                circle.y = Math.max(0, Math.min(circle.y, window.innerHeight - circle.size));
+            }
+
+            // Проверка столкновения с курсором
+            if (mouse.x !== null && mouse.y !== null) {
+                const centerX = circle.x + circle.size / 2;
+                const centerY = circle.y + circle.size / 2;
+                const distX = centerX - mouse.x;
+                const distY = centerY - mouse.y;
+                const distance = Math.sqrt(distX * distX + distY * distY);
+
+                if (distance < circle.size / 2 + 20) { // Если курсор близко
+                    const angle = Math.atan2(distY, distX);
+                    const speed = 5; // Скорость отталкивания
+                    circle.dx = Math.cos(angle) * speed;
+                    circle.dy = Math.sin(angle) * speed;
+                }
+            }
+
+            circle.element.style.transform = `translate(${circle.x}px, ${circle.y}px)`;
+        });
+
+        requestAnimationFrame(updateCircles);
+    }
+
+    // Обновление координат курсора
+    window.addEventListener("mousemove", event => {
+        mouse.x = event.clientX;
+        mouse.y = event.clientY;
+    });
+
+    // Если курсор покидает экран, сбрасываем его координаты
+    window.addEventListener("mouseleave", () => {
+        mouse.x = null;
+        mouse.y = null;
+    });
+
+    updateCircles();
+</script>
+
+</body>
+</html>

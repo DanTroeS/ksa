@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Личный кабинет</title>
+    <link rel="stylesheet" href="./Новая папка/account.css">
+</head>
+<body>
+
+    <header>
+        <div class="logo">Моя семья - мой космос</div>
+        <nav>
+            <a href="#">Личный кабинет</a>
+            <a href="#">О нас</a>
+            <a href="#">Конкурсы</a>
+            <a href="#">Поиск</a>
+            <a href="#">Контакты</a>
+         
+        </nav>
+    </header>
+
+    <div class="container">
+        <section class="profile">
+            <h2>Личный кабинет</h2>
+            
+
+                <div class="avatar-section">
+                    <div class="avatar">
+                        <img id="avatar-img" src="avatar.jpg" alt="Аватар">
+                        <label for="avatar-upload" class="edit-icon">✏️</label>
+                        <input type="file" id="avatar-upload" accept="image/*">
+                    </div>
+                    <button class="password-btn">🔒 Сменить пароль</button>
+                    <button class="logout-btn">📤 Выйти</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="contest">
+            <h3>Запись на конкурс</h3>
+            <label>Конкурс:</label>
+            <select id="contest">
+                <option>Конкурс 1</option>
+                <option>Конкурс 2</option>
+            </select>
+
+            <label>Дата:</label>
+            <input type="date" id="contest-date">
+
+            <label>Время (9:00 - 21:00):</label>
+            <input type="time" id="contest-time" min="09:00" max="21:00">
+
+            <label>Количество человек:</label>
+            <select id="people-count">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+            </select>
+
+            <button class="submit-btn">Записаться</button>
+        </section>
+    </div>
+
+    <script src="./asdw.js"></script>
+</body>
+</html>

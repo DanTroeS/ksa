@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Градиентный фон</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            background: linear-gradient(135deg, blue, purple);
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+        #hiddenText {
+            display: none;
+            margin-top: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            background-color: white;
+            color: black;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Пример градиентного фона</h1>
+    <button onclick="toggleText()">Показать/Скрыть текст</button>
+    <p id="hiddenText">Это скрытый текст!</p>
+    <script>
+        function toggleText() {
+            var text = document.getElementById("hiddenText");
+            if (text.style.display === "none") {
+                text.style.display = "block";
+            } else {
+                text.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>
